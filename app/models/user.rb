@@ -28,7 +28,7 @@ class User < ApplicationRecord
     end
 
     def self.generate_session_token
-        BCrype::SecureRandom.urlsafe_base64
+       SecureRandom.urlsafe_base64
     end
 
     def ensure_session_token
