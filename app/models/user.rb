@@ -6,7 +6,7 @@ class User < ApplicationRecord
     #FIGVAPER
     before_initialization :ensure_session_token
 
-    attr_reader: :password
+    attr_reader :password
     def self.find_by_credentials(username,email,password)
         user = User.find_by(username: username) || User.find_by(email: email)
         if user
