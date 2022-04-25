@@ -4,7 +4,7 @@ class User < ApplicationRecord
     validates :first_name, :last_name, presence: true
     
     #FIGVAPER
-    before_validations :ensure_session_token
+    before_validation :ensure_session_token
 
     attr_reader :password
     def self.find_by_credentials(username,email,password)
