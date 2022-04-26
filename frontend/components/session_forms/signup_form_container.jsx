@@ -1,14 +1,13 @@
 import { connect } from "react-redux";
 import SignUpForm from "./signup_form";
 import { signup } from "../../actions/session_actions";
+import { withRouter } from "react-router-dom";
 const mapStateToProps = () => {
   return {
     user: {
       username: "",
       email: "",
       password: "",
-      firstName: "",
-      lastName: ""
     }
   }
 }

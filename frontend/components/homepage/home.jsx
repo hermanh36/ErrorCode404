@@ -3,16 +3,27 @@ import React from 'react';
 class Home extends React.Component{
   constructor(props) {
     super(props);
+    this.logoutHandler = this.logoutHandler.bind(this);
   }
 
   loggedIn() {
-    !!this.props.currentUser
+    if (this.props.currentUser){
+      return true;
+    }
+    return false;
+  }
+
+  logoutHandler() {
+    this.props.logout(this.props.currentUser).then(()=>this.props.history.push("/"));
   }
 
   display() {
     if (this.loggedIn()) {
       return (
-        <h1>Welcome {this.props.currentUser.username}</h1>
+        <div>
+          <h1>Welcome {this.props.currentUser.username}</h1>
+          <button onClick={this.logoutHandler}>Logout</button>
+        </div>
       )
     } else {
       return(
