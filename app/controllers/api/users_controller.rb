@@ -6,11 +6,11 @@ class Api::UsersController < ApplicationController
     if @user.save
       render 'api/users/show'
     else
-      render json: @user.errors.full_messages
+      render json: @user.errors.full_messages, status:422
     end
   end
 
   def user_params
-    return params.require(:user).permit(:username,:email,:password,:first_name, :last_name)
+    return params.require(:user).permit(:username,:email,:password)
   end
 end
