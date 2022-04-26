@@ -5,10 +5,9 @@ import SignUpFormContainer from './session_forms/signup_form_container';
 import LoginFormContainer from './session_forms/login_form_container';
 const App = () => (
   <div>
-    Homepage
-    <HomeContainer/>
     <Route path="/login" component={LoginFormContainer}/>
     <Route path="/signup" component={SignUpFormContainer} />
+    <Route exact path="/" component={HomeContainer}/>
   </div>
 )
 

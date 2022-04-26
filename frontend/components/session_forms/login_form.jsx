@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
   submitHandler(e) {
     e.preventDefault();
     this.props.login(this.state)
+      .then(() => this.props.history.push('/'));
   }
   render() {
     return (
