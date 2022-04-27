@@ -19,6 +19,17 @@ class SignUpForm extends React.Component{
     console.log(this.props);
     this.props.createUser(this.state).then(() => this.props.history.push('/'));
   }
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error+${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
@@ -33,6 +44,7 @@ class SignUpForm extends React.Component{
         <label>Password
           <input type="password" value={this.state.password} onChange={this.update('password')}/>
         </label>
+        {this.renderErrors()}
         <input type="submit" value='Sign Up!' />
       </form>
     )
