@@ -5,6 +5,10 @@ class User < ApplicationRecord
     #FIGVAPER
     before_validation :ensure_session_token
 
+    has_many :questions,
+        foreign_key: :author_id,
+        class_name: :Question
+
     attr_reader :password
     def self.find_by_credentials(username,email,password)
         user = User.find_by(username: username) || User.find_by(email: email)
