@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: image-url('background.jpg');
+  background: #3b3c36;
   width: 1400px;
   height: 800px;
   border-radius: 10px;
@@ -31,10 +31,11 @@
   width: 300px;
   padding: 10px;
   border: 0.5px solid gray;
-  background-color:black;
-  box-shadow: 0 0 5px red;
+  background-color:#36454f;
+  box-shadow: 0 0 5px lightblue;
   margin-bottom:10px;
-  border-radius: 2px;
+  border-radius: 8px;
+  text-align:center;
 }
 .homepage-join-now-link {
   padding: 10px;
@@ -154,19 +155,21 @@
   -1px -1px 0 darkslategray,
   1px -1px 0 darkslategray,
   -1px 1px 0 darkslategray;
+
 }
+
 
 .intro-container > h1{
   width: 650px;
   color: white;
-  text-shadow: 5px 0 0 black,
-  -5px 0 0 black,
-  0 5px 0 black,
-  0 -5px 0 black,
-  3px 3px black,
-  -5px -5px 0 black,
-  3px -3px 0 black,
-  -5px 5px 0 black;
+  text-shadow: 2px 0 0 black,
+  -2px 0 0 black,
+  0 2px 0 black,
+  0 -2px 0 black,
+  1px 1px black,
+  -2px -2px 0 black,
+  1px -1px 0 black,
+  -2px 2px 0 black;
 }
 
 .loop {

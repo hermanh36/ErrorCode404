@@ -23,17 +23,16 @@ class HomePage extends React.Component {
             </TextLoop>&nbsp;has a error that needs to be solved!</h1>
           </div>
           <div className='join-now-container'>
-            <span>Find the answer to all your bugs!</span>
-            <span>Or help others with your expertise.</span>
+            <p className='join-text'>Find the answer to all your bugs! Or help others with your expertise.</p>
             <Link to='/signup' className='homepage-join-now-link'><div>Join Now</div></Link>
           </div>
           <div className='homepage-bar'></div>
           <div className='splash-about'>
-            <p>This website is modeled after Stack Overflow.
+            <div className='splash-text'>This website is modeled after Stack Overflow.
                Here, users have a platform in which they can ask
                questions about their super annoying bugs, and help
                the others by giving their professional input the the community.
-            </p>
+            </div>
           </div>
           <div className='about-container'>
             <div className='frontend-description-container'>
