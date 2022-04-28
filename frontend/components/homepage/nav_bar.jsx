@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import icon from '../../images/icon.png';
-class NavBar extends React.Component{
+import profilePic from '../../images/profile-pic.png'
+
+class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutHandler = this.logoutHandler.bind(this);
@@ -33,8 +35,8 @@ class NavBar extends React.Component{
     if (this.loggedIn()) {
       return (
         <div className='logged-in-right-nav'>
-          <button className='nav-btn'>Profile Placeholder</button>
-          <button className='nav-btn' onClick={this.logoutHandler}>Logout</button>
+          <Link to="/"className='nav-btn profile-pic'><img src={profilePic}/></Link>
+          <button className='nav-btn logout-btn' onClick={this.logoutHandler}>Logout</button>
         </div>
       )
     } else {
@@ -48,30 +50,28 @@ class NavBar extends React.Component{
   }
 
   displayLeftButton() {
-    if (!this.loggedIn()){
-      return (
-        <div className='logged-in-left-nav'>
-          <div className='menu-icon-container' onClick={this.menuIconHandler}>
-            <div className='bar1'></div>
-            <div className='bar2'></div>
-            <div className='bar3'></div>
-          </div>
-          <div className='nav-drop-down-content'>
-            <ul >
-              <li>
-                <Link>Home</Link>
-              </li>
-              <li>
-                <Link>Questions</Link>
-              </li>
-              <li>
-                <Link>Users</Link>
-              </li>
-            </ul>
-          </div>
+    return (
+      <div className='logged-in-left-nav'>
+        <div className='menu-icon-container' onClick={this.menuIconHandler}>
+          <div className='bar1'></div>
+          <div className='bar2'></div>
+          <div className='bar3'></div>
         </div>
-      )
-    }
+        <div className='nav-drop-down-content'>
+          <ul >
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link>Questions</Link>
+            </li>
+            <li>
+              <Link>Users</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    )
   }
 
   render() {

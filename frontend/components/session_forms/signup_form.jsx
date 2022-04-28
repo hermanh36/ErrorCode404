@@ -42,11 +42,11 @@ class SignUpForm extends React.Component{
           </div>
           <div className='signup-house'>
             <div className='signup-label-container'>
-              <label for='user' className='user-label'>Username</label>
+              <label htmlFor='user' className='user-label'>Username</label>
               <input className='user-field' name='user' type="text" value={this.state.username} onChange={this.update('username')} />
-              <label for="email" className='email-label'>Email</label>
+              <label htmlFor="email" className='email-label'>Email</label>
               <input name='email' className='email-field'type="text" value={this.state.email} onChange={this.update('email')} />
-              <label for='password' className='password-label'>Password</label>
+              <label htmlFor='password' className='password-label'>Password</label>
               <input name='password' className='password-field'type="password" value={this.state.password} onChange={this.update('password')} />
               <div className='signup-errors'>{this.renderErrors()}</div>
             </div>

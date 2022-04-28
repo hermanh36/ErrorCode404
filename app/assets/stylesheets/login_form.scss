@@ -1,15 +1,6 @@
 .login-form-container {
   display: flex;
   flex-direction:column;
-  // width: 200px;
-  // align-items: center;
-  // justify-content: center;
-  // padding: 100px;
-  // border: 1px solid gray;
-  // margin-top: 100px;
-  // background-color: white;
-  // border-radius: 10px;
-  // border: 2px solid;
 }
 .login-house{
   display: flex;
@@ -86,9 +77,13 @@ body {
   height: 25px;
 }
 
-.form-login-btn {
+.form-login-btn,  .login-demo {
   width: 308px;
   height: 30px;
   border-radius: 5px;
   background-color: #00BFFF;
+}
+
+.login-demo {
+  margin-top: 10px;
 }

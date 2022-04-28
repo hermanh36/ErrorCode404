@@ -13,6 +13,8 @@
   padding: 10px;
   border-bottom: 2px solid gray;
   box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.7);
+  height: 40px;
+  width:100
 }
 .nav-search {
   height: 18px;
@@ -27,11 +29,12 @@
 .nav-drop-down-content {
   display: none;
   position: absolute;
-  min-width: 150px;
-  background: white;
-  border-bottom: 1px solid lightgray;
+  min-width: 200px;
+  background: #F0F0F0;
+  border: 1px solid lightgray;
   border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
+  border-radius: 5px;
 }
 
 .logged-in-left-nav {
@@ -65,10 +68,28 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.nav-drop-down-content li * {
+  text-decoration: none;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: steelblue;
+}
+.nav-drop-down-content li *:hover {
+  text-shadow: 2px 0 0 #00538C,
+  -2px 0 0 #00538C,
+  0 2px 0 #00538C,
+  0 -2px 0 #00538C,
+  1px 1px #00538C,
+  -1px -1px 0 #00538C,
+  1px -1px 0 #00538C,
+  -1px 1px 0 #00538C;
+}
 
 .nav-drop-down-content ul {
   list-style-type: none;
 }
+
 
 .icon-container {
   display: flex;
@@ -151,4 +172,43 @@ body {
 .logged-out-right-nav{
   display: flex;
   align-items: center;
+}
+
+.logout-btn {
+  border-radius: 5px;
+  background-color: #00BFFF;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-family:'Lucida Sans',
+  'Lucida Sans Regular',
+  'Lucida Grande',
+  'Lucida Sans Unicode',
+  Geneva,
+  Verdana,
+  sans-serif;
+  color:white;
+  text-shadow: 0px 0px 5px black;
+  margin-left: 5px;
+}
+
+.logged-in-right-nav {
+  display: flex;
+  align-items: center;
+
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic img {
+  border: 1px solid black;
+  margin-top: 4px;
+  background-color: #E1EBEE;
+  border-radius: 7px;
 }

@@ -6,6 +6,7 @@ class LoginForm extends React.Component {
     this.state = this.props.user
     this.update = this.update.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.demoHandler = this.demoHandler.bind(this);
   }
 
   update(field) {
@@ -19,6 +20,10 @@ class LoginForm extends React.Component {
       .then(() => this.props.history.push('/'));
   }
 
+  demoHandler(e) {
+    e.preventDefault();
+    this.props.login({username:'Demo',password:'demotester'}).then(() => this.props.history.push('/'));
+  }
   renderErrors() {
     return (
       <ul>
@@ -40,15 +45,16 @@ class LoginForm extends React.Component {
           </div>
           <div className='login-house'>
             <div className='login-label-container'>
-              <label for='user'className='user-label'>Username
+              <label htmlFor='user'className='user-label'>Username
               </label>
               <input className='user-field' name='user' type="text" value={this.state.username} onChange={this.update('username')} />
-              <label for='password'className='password-label'>Password
+              <label htmlFor='password'className='password-label'>Password
               </label>
               <input className='password-field' name='password'type="password" value={this.state.password} onChange={this.update('password')} />
               <div className='login-errors'>{this.renderErrors()}</div>
             </div>
             <input className='form-login-btn' type="submit" value="Log In"/>
+            <button className='login-demo' onClick={this.demoHandler}>Demo Login</button>
           </div>
         </div >
       </form>
