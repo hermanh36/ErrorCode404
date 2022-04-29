@@ -1,5 +1,5 @@
 import React from 'react';
-import icon from '../../images/icon.png';
+import icon from '../../../app/assets/images/icon.png';
 class LoginForm extends React.Component {
   constructor(props){
     super(props)

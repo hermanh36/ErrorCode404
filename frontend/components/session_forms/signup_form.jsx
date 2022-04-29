@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import icon from '../../images/icon.png';
+import icon from '../../../app/assets/images/icon.png';
 class SignUpForm extends React.Component{
   constructor(props){
     super(props);

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import icon from '../../images/icon.png';
-import profilePic from '../../images/profile-pic.png'
+import icon from '../../../app/assets/images/icon.png';
+import profilePic from '../../../app/assets/images/profile-pic.png';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class NavBar extends React.Component {
         <div className='left-nav'>
           {this.displayLeftButton()}
         </div>
-        <Link className='nav-icon'><div className='icon-container'><img src={icon}/><div className='icon-name'>Error 404</div></div></Link>
+        <Link to='/' className='nav-icon'><div className='icon-container'><img src={icon} id='nav-icon'/><div className='icon-name'>Error 404</div></div></Link>
         <input type="text" className='nav-search' placeholder='Search' />
         <div className='right-nav-container'>
           {this.displayRightNav()}
