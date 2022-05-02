@@ -5,6 +5,7 @@ import configureStore from './store/store'
 import * as questionAction from './actions/question_actions';
 import * as sessionUtil from './util/session_api_util';
 import * as questionApi from './util/question_api_util';
+import * as sessionAction from './actions/session_actions'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-  window.createUser = sessionUtil.signup;
+  window.createUser = sessionAction.signup;
   window.createQuestion = questionAction.createQuestion;
   window.fetchQuestion = questionAction.fetchQuestion;
   window.fetchQuestions = questionAction.fetchQuestions

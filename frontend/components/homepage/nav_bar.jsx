@@ -63,7 +63,7 @@ class NavBar extends React.Component {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link>Questions</Link>
+              <Link to='/questions'>Questions</Link>
             </li>
             <li>
               <Link>Users</Link>

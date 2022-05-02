@@ -8,11 +8,11 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(questions_params)
-    @question.author_id = current_user.id
-    if @question.save!
+    @question.author_id = 1
+    if @question.save
       render 'api/questions/show'
     else
-      render json: @question.errors.full_messages, status: :unprocessable_entity
+      render json: @question.errors.full_messages, status: 422
     end
   end
 
@@ -21,7 +21,7 @@ class Api::QuestionsController < ApplicationController
     if @question.update(questions_params)
       render 'api/questions/show'
     else
-      render json: @question.errors.full_messages, status: :unprocessable_entity
+      render json: @question.errors.full_messages, status: 422
     end
   end
 

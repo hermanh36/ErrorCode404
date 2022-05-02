@@ -27,6 +27,7 @@ const removeQuestion = questionId => {
 }
 
 const receiveQuestionErrors = errors => {
+  debugger;
   return {
     type: RECEIVE_QUESTION_ERRORS,
     errors
@@ -51,9 +52,8 @@ export const fetchQuestion = (questionId) => dispatch => {
 
 export const createQuestion = (question) => dispatch => {
   return (
-    questionUtils.createQuestion(question)
-      .then(question => dispatch(receiveQuestion(question)),
-        err => dispatch(receiveQuestionErrors(err.responseJSON)))
+    questionUtils.createQuestion(question).then(question => dispatch(receiveQuestion(question)),
+        err => (dispatch(receiveQuestionErrors(err.responseJSON))))
   );
 };
 

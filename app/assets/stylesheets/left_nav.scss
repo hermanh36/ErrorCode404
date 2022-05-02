@@ -1,0 +1,30 @@
+#left-nav-container {
+  margin-top: 150px;
+  margin-left: 250px;
+  margin-right: 50px;
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  height: 100vh;
+  padding-right:15px;
+  position:fixed;
+  z-index: 20;
+  border: 1px solid lightgrey;
+  background-color:white;
+  height: 150px;
+}
+#left-nav-main-container {
+  border-right: 2px solid lightgrey;
+}
+#main-page-container {
+  display: flex;
+  flex-direction: row;
+}
+#right-nav-main-container {
+  border-left: 2px solid lightgrey;
+}
+
+#index-outer-div {
+  margin-left: 300px;
+}
