@@ -27,7 +27,6 @@ const removeQuestion = questionId => {
 }
 
 const receiveQuestionErrors = errors => {
-  debugger;
   return {
     type: RECEIVE_QUESTION_ERRORS,
     errors

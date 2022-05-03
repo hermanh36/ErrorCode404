@@ -4,7 +4,6 @@ const questionErrorReducer = (state = [], action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_QUESTION_ERRORS:
-      debugger;
       return action.errors;
     case RECEIVE_QUESTION:
       return [];

@@ -1,3 +1,6 @@
+import React from 'react';
+import { Route } from 'react-router-dom';
+import QuestionIndex from '../components/questions/question_index';
 
 export const fetchQuestions = () => {
   return $.ajax({
@@ -9,8 +12,8 @@ export const fetchQuestions = () => {
 export const fetchQuestion = (questionId) => {
   return $.ajax({
     method:'get',
-    url: `/api/questions/${questionId}`
-  });
+    url: `/api/questions/${questionId}`,   
+  })
 };
 
 export const createQuestion = question => {

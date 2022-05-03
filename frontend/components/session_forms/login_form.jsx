@@ -37,27 +37,29 @@ class LoginForm extends React.Component {
   }
   render() {
     return (
-      <form className='login-form' onSubmit={this.submitHandler}>
-        <div className='login-form-container'>
-          <div className='login-header-container'>
-            <img src={icon} />
-            <h1 className='login-header'>Login</h1>
-          </div>
-          <div className='login-house'>
-            <div className='login-label-container'>
-              <label htmlFor='user'className='user-label'>Username
-              </label>
-              <input className='user-field' name='user' type="text" value={this.state.username} onChange={this.update('username')} />
-              <label htmlFor='password'className='password-label'>Password
-              </label>
-              <input className='password-field' name='password'type="password" value={this.state.password} onChange={this.update('password')} />
-              <div className='login-errors'>{this.renderErrors()}</div>
+      <div id='login-page-background'>
+        <form className='login-form' onSubmit={this.submitHandler}>
+          <div className='login-form-container'>
+            <div className='login-header-container'>
+              <img src={icon} />
+              <h1 className='login-header'>Login</h1>
             </div>
-            <input className='form-login-btn' type="submit" value="Log In"/>
-            <button className='login-demo' onClick={this.demoHandler}>Demo Login</button>
-          </div>
-        </div >
-      </form>
+            <div className='login-house'>
+              <div className='login-label-container'>
+                <label htmlFor='user'className='user-label'>Username
+                </label>
+                <input className='user-field' name='user' type="text" value={this.state.username} onChange={this.update('username')} />
+                <label htmlFor='password'className='password-label'>Password
+                </label>
+                <input className='password-field' name='password'type="password" value={this.state.password} onChange={this.update('password')} />
+                <div className='login-errors'>{this.renderErrors()}</div>
+              </div>
+              <input className='form-login-btn' type="submit" value="Log In"/>
+              <button className='login-demo' onClick={this.demoHandler}>Demo Login</button>
+            </div>
+          </div >
+        </form>
+      </div>
     )
   }
 }

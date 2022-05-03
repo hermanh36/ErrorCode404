@@ -54,4 +54,48 @@
   margin-left: 500px;
 }
 
+.question-thread-author-edit {
+  margin-left:auto;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  color:rgb(227, 235, 238);
+  text-decoration: none;
+  background-color: rgb(62, 140, 250);
+  border-radius: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.question-thread-author-edit:hover {
+  background-color:rgb(3, 61, 127)
+}
+
+.question-thread-author-edit:active {
+  background-color: rgb(3, 38, 78);
+}
+
+.question-thread-author-delete {
+  margin-left: auto;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  color: rgb(227, 235, 238);
+  text-decoration: none;
+  background-color: rgb(62, 140, 250);
+  border-radius: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.question-thread-author-delete:hover {
+  background-color: rgb(3, 61, 127)
+}
+
+.question-thread-author-delete:active {
+  background-color: rgb(3, 38, 78);
+}
+
+.question-thread-buttons {
+  margin-left:auto;
+  display:flex;
+}
 

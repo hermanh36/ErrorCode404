@@ -3,8 +3,6 @@
 }
 
 #question-item-container {
-  border-left: 2px solid lightgray;
-  border-right: 2px solid lightgray;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   display: flex;
@@ -80,4 +78,17 @@
 
 #question-main-container #question-title:hover {
   color: rgb(126, 173, 188);
+}
+
+#question-index-total {
+  display: flex;
+}
+
+#question-index-fake-left-nav {
+  margin-left: 525px;
+  border-left: 2px solid lightgrey;
+}
+
+#question-index-fake-right-nav {
+  margin-right:450px;
 }

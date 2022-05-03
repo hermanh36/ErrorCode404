@@ -8,7 +8,7 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(questions_params)
-    @question.author_id = 1
+    @question.author_id = current_user.id
     if @question.save
       render 'api/questions/show'
     else
@@ -18,7 +18,9 @@ class Api::QuestionsController < ApplicationController
 
   def update
     @question = Question.find_by(id: params[:id])
-    if @question.update(questions_params)
+    if @question.author_id != current_user.id
+      render json: ['You are not the author of this'], status: 422
+    elsif (@question.update(questions_params))
       render 'api/questions/show'
     else
       render json: @question.errors.full_messages, status: 422
@@ -36,7 +38,7 @@ class Api::QuestionsController < ApplicationController
     if @question
       render 'api/questions/show'
     else
-      render json: ['The item you are looking for does not exist'];
+      render json: ['The item you are looking for does not exist'], status: 404;
     end
   end
 

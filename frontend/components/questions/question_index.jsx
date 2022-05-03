@@ -10,24 +10,32 @@ class QuestionIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuestions();
+
   }
 
   render() {
     if (this.props.questions) {
       return (
-      <div id='index-outer-div'>
-        <div id='question-index-container'>
-          <div id='questions-header-container'>
-            <h1>Questions</h1>
-            <Link to="/questions/ask"><button className='ask-question'>Ask Question</button></Link>
+        <div>
+
+          <div id='question-index-total'>
+            <div id='question-index-fake-left-nav'></div>
+            <div id='index-outer-div'>
+              <div id='question-index-container'>
+                <div id='questions-header-container'>
+                  <h1>Questions</h1>
+                  <Link to="/ask"><button className='ask-question'>Ask Question</button></Link>
+                </div>
+                <ul id='question-index-list'>
+                {this.props.questions.map(question => (
+                  <QuestionIndexItem question={question}/>
+                ))}
+                </ul>
+              </div>
+            </div>
+            <div id='question-index-fake-right-nav'></div>
           </div>
-          <ul id='question-index-list'>
-          {this.props.questions.map(question => (
-            <QuestionIndexItem question={question}/>
-          ))}
-          </ul>
         </div>
-      </div>
       )
     } else {
       return null;

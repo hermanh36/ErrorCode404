@@ -1,7 +1,7 @@
 #left-nav-container {
   margin-top: 150px;
-  margin-left: 250px;
   margin-right: 50px;
+  margin-left: 390px;
   display:flex;
   flex-direction: column;
   padding: 10px;
@@ -10,21 +10,48 @@
   padding-right:15px;
   position:fixed;
   z-index: 20;
-  border: 1px solid lightgrey;
-  background-color:white;
   height: 150px;
 }
-#left-nav-main-container {
-  border-right: 2px solid lightgrey;
+
+#left-nav-container ul {
+  margin-top: -5px;
 }
-#main-page-container {
-  display: flex;
-  flex-direction: row;
+#left-nav-container li {
+  list-style: none;
+  padding: 7px;
+  padding-bottom:10px;
+  width:auto;
+  height:auto;
 }
-#right-nav-main-container {
-  border-left: 2px solid lightgrey;
+#left-nav-container * {
+  text-decoration: none;
+  color: black;
 }
 
-#index-outer-div {
-  margin-left: 300px;
+#left-nav-container li * {
+  padding: 5px;
+}
+
+#left-nav-container .home {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.selected {
+  background-color:rgb(195, 188, 188);
+  border-right: 2px solid orange ;
+  margin-right : -2px;
+}
+
+.left-nav-item:hover {
+  background-color: lightgrey;
+}
+
+.left-nav-users {
+  padding-right: 36px !important;
+}
+
+.left-nav-question {
+  padding-right:8px !important;
 }

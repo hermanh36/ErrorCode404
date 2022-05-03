@@ -10,22 +10,22 @@ import QuestionThreadContainer from './questions/question_thread_container';
 import { Switch } from 'react-router-dom';
 import QuestionFormContainer from './questions/question_form_container';
 import LeftNav from './left_nav';
+import EditQuestionContainer from './questions/edit-question-container';
 const App = () => (
   <div id='main-container'>
-    <Route path="/" component={NavBarContainer} />
+    <Route path="/" component={NavBarContainer}  />
     <AuthRoute exact path="/" component={HomePage} />
     <Route path="/login" component={LoginFormContainer}/>
     <AuthRoute path="/signup" component={SignUpFormContainer} />
-    <div >
-      <div id='left-nav-main-container'><Route exact path="/questions" component={LeftNav} /></div>
+    <Route path ="/questions" component={LeftNav}/>
       <Switch>
-        <Route exact path="/questions/ask" component={QuestionFormContainer} />
+        <ProtectedRoute exact path="/ask" component={QuestionFormContainer} />
+        <ProtectedRoute exact path="/:questionId/edit" component={EditQuestionContainer}/>
         <Route  path="/questions/:questionId" component={QuestionThreadContainer} />
         <Route  path="/questions" component={QuestionIndexContainer}/>
       </Switch>
-      <div id='right-nav-main-container'></div>
-    </div>
   </div>
 )
+
 
 export default App;

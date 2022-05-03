@@ -60,10 +60,10 @@ class NavBar extends React.Component {
         <div className='nav-drop-down-content'>
           <ul >
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/' timestamp={new Date().toString()}>Home</Link>
             </li>
             <li>
-              <Link to='/questions'>Questions</Link>
+              <Link to='/questions' timestamp={new Date().toString()}>Questions</Link>
             </li>
             <li>
               <Link>Users</Link>
