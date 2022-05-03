@@ -1,5 +1,5 @@
 import React from 'react';
-import icon from '../../../app/assets/images/icon.png';
+// import icon from '../../../app/assets/images/icon.png';
 class LoginForm extends React.Component {
   constructor(props){
     super(props)
@@ -41,7 +41,7 @@ class LoginForm extends React.Component {
         <form className='login-form' onSubmit={this.submitHandler}>
           <div className='login-form-container'>
             <div className='login-header-container'>
-              <img src={icon} />
+              <img src={window.iconURL} />
               <h1 className='login-header'>Login</h1>
             </div>
             <div className='login-house'>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import icon from '../../../app/assets/images/icon.png';
-import profilePic from '../../../app/assets/images/profile-pic.png';
+// import icon from '../../../app/assets/images/icon.png';
+// import profilePic from '../../../app/assets/images/profile-pic.png';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class NavBar extends React.Component {
     if (this.loggedIn()) {
       return (
         <div className='logged-in-right-nav'>
-          <Link to="/"className='nav-btn profile-pic'><img src={profilePic}/></Link>
+          <Link to="/"className='nav-btn profile-pic'><img src={window.profilePicURL}/></Link>
           <button className='nav-btn logout-btn' onClick={this.logoutHandler}>Logout</button>
         </div>
       )

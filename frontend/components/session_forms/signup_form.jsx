@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import icon from '../../../app/assets/images/icon.png';
+// import icon from '../../../app/assets/images/icon.png';
 class SignUpForm extends React.Component{
   constructor(props){
     super(props);
@@ -39,7 +39,7 @@ class SignUpForm extends React.Component{
         <form onSubmit={this.submitHandler} className='signupForm'>
           <div className='signup-form-container'>
             <div className='signup-header-container'>
-              <img src={icon}/>
+              <img src={window.iconURL}/>
               <h1>Sign Up</h1>
             </div>
             <div className='signup-house'>
