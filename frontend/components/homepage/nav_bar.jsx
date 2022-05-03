@@ -80,7 +80,7 @@ class NavBar extends React.Component {
         <div className='left-nav'>
           {this.displayLeftButton()}
         </div>
-        <Link to='/' className='nav-icon'><div className='icon-container'><img src={icon} id='nav-icon'/><div className='icon-name'>Error 404</div></div></Link>
+        <Link to='/' className='nav-icon'><div className='icon-container'><img src={window.iconURL} id='nav-icon'/><div className='icon-name'>Error 404</div></div></Link>
         <input type="text" className='nav-search' placeholder='Search' />
         <div className='right-nav-container'>
           {this.displayRightNav()}

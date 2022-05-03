@@ -1,12 +1,6 @@
 import React from 'react'
 import TextLoop from 'react-text-loop';
 import { Link } from 'react-router-dom';
-// import lightBulb from '../../../app/assets/images/light-bulb.png'
-// import question from '../../../app/assets/images/asking.png'
-// import upvote from '../../../app/assets/images/transfer.png'
-// import ruby from '../../../app/assets/images/ruby.png'
-// import react from '../../../app/assets/images/react-symbol.png'
-// import icon from '../../../app/assets/images/icon.png'
 
 
 class HomePage extends React.Component {
