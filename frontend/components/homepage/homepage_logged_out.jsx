@@ -1,12 +1,12 @@
 import React from 'react'
 import TextLoop from 'react-text-loop';
 import { Link } from 'react-router-dom';
-import lightBulb from '../../../app/assets/images/light-bulb.png'
-import question from '../../../app/assets/images/asking.png'
-import upvote from '../../../app/assets/images/transfer.png'
-import ruby from '../../../app/assets/images/ruby.png'
-import react from '../../../app/assets/images/react-symbol.png'
-import icon from '../../../app/assets/images/icon.png'
+// import lightBulb from '../../../app/assets/images/light-bulb.png'
+// import question from '../../../app/assets/images/asking.png'
+// import upvote from '../../../app/assets/images/transfer.png'
+// import ruby from '../../../app/assets/images/ruby.png'
+// import react from '../../../app/assets/images/react-symbol.png'
+// import icon from '../../../app/assets/images/icon.png'
 
 
 class HomePage extends React.Component {
@@ -24,20 +24,20 @@ class HomePage extends React.Component {
             <div className='main-pane'>
               <div className='join-parent'>
                 <div className='question'>
-                  <img src={question}/>
+                  <img src={window.askingURL}/>
                   <p>Ask a Question</p>
                   <p>Give an Answer</p>
                   <p>Write a Comment</p>
                 </div>
                 <div className='join-now-container'>
-                  <img src={lightBulb}/>
+                  <img src={window.lightBulbURL}/>
                   <p className='join-text'>Have an error you can't figure out? Is the new technology
                     difficult to learn on your own?<br /> Error404 is here to help you out!<br />Join today to connect with the community and
                     find the answer to all your bugs!</p>
                   <Link to='/signup' className='homepage-join-now-link'><div>Join Now</div></Link>
                 </div>
                 <div className='upvote'>
-                  <img src={upvote} />
+                  <img src={window.transferURL} />
                   <p>Upvote and Downvote</p>
                   <p>Vote on Questions</p>
                   <p>Vote on Answers</p>
@@ -63,19 +63,19 @@ class HomePage extends React.Component {
                   <p>This application uses React, Redux, and Javascript for the frontend logic
                     HTML and CSS is used to display and style the website.
                   </p>
-                  <img src={react} alt="" className='react' />
+                  <img src={window.reactURL} alt="" className='react' />
                 </div>
                 <div className='backend-description-container'>
                   <p>The backend of this application is built off of a Ruby on Rails
                     and PostgreSQL database. The data is passed though as json through
                     a jBuilder object and AJAX requests are used to transfer data.
                   </p>
-                  <img src={ruby} alt="" className='ruby' />
+                  <img src={window.rubyURL} alt="" className='ruby' />
                 </div>
               </div>
               <div className="functionality-parent">
                 <div className='functionality-description-container'>
-                  <img src={icon} id='icon' />
+                  <img src={window.iconURL} id='icon' />
                   <p>Users are able to sign up an account and login to the application.
                       Users can also view other users' questions. While logged in,
                       users can create, update, and delete questions, answers, and comments.
@@ -88,7 +88,7 @@ class HomePage extends React.Component {
         </div>
         <div className='outro-background'>
           <div className='outro-container'>
-            <img src={icon} alt="" id='outro-icon'/>
+            <img src={window.iconURL} alt="" id='outro-icon'/>
             <div id='outro-text'>
               <span id='outro-header'><p id='outro-name'>Error 404&nbsp;</p><p id='outro-author'>Created by Herman He</p></span>
               <p id='outro-contributors'>Icons made by various contributers on icons8.com  </p>
