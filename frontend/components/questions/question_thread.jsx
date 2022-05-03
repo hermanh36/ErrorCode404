@@ -34,7 +34,7 @@ class QuestionThread extends React.Component {
             <div id='question-thread-container'>
               <div id='question-thread-header'>
                 <h1>{this.props.question.title}</h1>
-                <div><Link to="/ask"><button class='ask-question'>Ask Question</button></Link></div>
+                <div><Link to="/ask"><button className='ask-question'>Ask Question</button></Link></div>
               </div>
               <div id='main-question-container'>
                 <div id='main-question'>

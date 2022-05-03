@@ -28,6 +28,7 @@
 
 #question-main-container {
   margin-left: 200px;
+  padding-right: 10px;
 }
 #question-main-container > #question-author {
  margin-left: 500px;
@@ -66,6 +67,7 @@
   font-weight:bold;
   font-size:14px;
   margin-top:5px;
+  margin-left: -200px;
 }
 
 .ask-question:hover {
