@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import AnswerIndexItem from '../answers/answer_index_item';
+import AnswerFormContainer from '../answers/answer_form_container';
 
 
 class QuestionThread extends React.Component {
@@ -26,7 +27,9 @@ class QuestionThread extends React.Component {
   }
 
   render() {
-    if (this.props.question) {
+    if (!this.props.question) {
+      return null
+    } else {
       return (
         <div>
           <div id='outer-thread-container'>
@@ -34,7 +37,7 @@ class QuestionThread extends React.Component {
             <div id='question-thread-container'>
               <div id='question-thread-header'>
                 <h1>{this.props.question.title}</h1>
-                <div><Link to="/ask"><button className='ask-question'>Ask Question</button></Link></div>
+                <div><Link to="/ask"><button className='ask-question' id='question-thread-ask-question'>Ask Question</button></Link></div>
               </div>
               <div id='main-question-container'>
                 <div id='main-question'>
@@ -50,13 +53,24 @@ class QuestionThread extends React.Component {
                 <div></div>}
                 <div className='question-thread-author'>Asked by: {this.props.question.authorUsername}</div>
               </div>
+              <div>
+                <div id='main-answer-container'>
+                  <h1>Answers</h1>
+                  {this.props.question.answers?.map((answer,idx) => {
+                    return <div id='each-answer-container' key={idx}><AnswerIndexItem  answer={answer} deleteAnswer={this.props.deleteAnswer} history={this.props.history}
+                    question={this.props.question} fetchQuestion={this.props.fetchQuestion} 
+                    currentUserId={this.props.currentUserId} updateAnswer={this.props.updateAnswer} /></div>
+                  })}
+                </div>
+              </div>
+              <div>
+                <AnswerFormContainer question ={this.props.question} history={this.props.history}/>
+              </div>
             </div>
             <div></div>
           </div>
         </div>
       )
-    } else {
-      return null;
     }
   }
 }

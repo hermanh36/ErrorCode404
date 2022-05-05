@@ -8,9 +8,7 @@ class Api::AnswersController < ApplicationController
   
     def create
       @answer = Answer.new(answers_params)
-      debugger;
       @answer.author_id = current_user.id
-      debugger;
       if @answer.save
         render 'api/answers/show'
       else

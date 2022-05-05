@@ -1,0 +1,61 @@
+#answer-form {
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  padding-top:30px;
+  border-top: 2px solid lightgray;
+}
+#answer-form label {
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 10px;
+}
+
+#answer-body {
+  height: 200px;
+  width: 630px;
+  border-radius: 8px;
+  border-top: 3px solid gray;
+  border-bottom: 3px solid gray;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+  box-shadow: 0 0 5px black;
+}
+
+#answer-form input {
+  margin-right: auto;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  color: rgb(227, 235, 238);
+  text-decoration: none;
+  background-color: rgb(62, 140, 250);
+  border-radius: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+#edit-answer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.edit-box {
+  height: 150px;
+  width: 500px;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  box-shadow: 0 0 4px black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.edit-answer-label {
+  font-weight: bold;
+  font-size: 24px;
+}

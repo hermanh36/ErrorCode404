@@ -21,14 +21,14 @@ class QuestionIndex extends React.Component {
           <div id='question-index-total'>
             <div id='question-index-fake-left-nav'></div>
             <div id='index-outer-div'>
+              <div id='questions-header-container'>
+                <h1>Questions</h1>
+                <Link to="/ask"><button className='ask-question'>Ask Question</button></Link>
+              </div>
               <div id='question-index-container'>
-                <div id='questions-header-container'>
-                  <h1>Questions</h1>
-                  <Link to="/ask"><button className='ask-question'>Ask Question</button></Link>
-                </div>
                 <ul id='question-index-list'>
-                {this.props.questions.map(question => (
-                  <QuestionIndexItem question={question}/>
+                {this.props.questions.map((question,idx) => (
+                  <QuestionIndexItem question={question} key={idx} history={this.props.history}/>
                 ))}
                 </ul>
               </div>

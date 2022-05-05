@@ -36,34 +36,34 @@ const removeAnswer = answerId => {
 export const fetchAnswers = () => dispatch => {
     return (
         answerUtil.fetchAnswers().then(answers => dispatch(receiveAnswers(answers)),
-        err => dispatch(receiveAnswerErrors(err)))
+        err => dispatch(receiveAnswerErrors(err.responseJSON)))
     )
 };
 
 export const fetchAnswer = answerId => dispatch => {
     return (
         answerUtil.fetchAnswer(answerId).then(answer =>dispatch(receiveAnswer(answer)),
-        err => dispatch(receiveAnswerErrors(err)))
+            err => dispatch(receiveAnswerErrors(err.responseJSON)))
     )
 };
 
 export const createAnswer = answer => dispatch => {
     return (
         answerUtil.createAnswer(answer).then(answer => receiveAnswer(answer),
-        err => dispatch(receiveAnswerErrors(err)))
+            err => dispatch(receiveAnswerErrors(err.responseJSON)))
     )
 };
 
 export const updateAnswer = answer => dispatch => {
     return (
         answerUtil.updateAnswer(answer).then(answer => receiveAnswer(answer),
-        err => dispatch(receiveAnswerErrors(err)))
+            err => dispatch(receiveAnswerErrors(err.responseJSON)))
     )
 }
 
 export const deleteAnswer = answerId => dispatch => {
     return (
         answerUtil.deleteAnswer(answerId).then(() => dispatch(removeAnswer(answerId),
-        err => receiveAnswerErrors(err)))
+            err => receiveAnswerErrors(err.responseJSON)))
     )
 }

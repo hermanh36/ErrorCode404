@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { deleteQuestion, fetchQuestion } from "../../actions/question_actions";
 import QuestionThread from "./question_thread"
+import { createAnswer, deleteAnswer, updateAnswer } from "../../actions/answers_actions";
 
 const mapStateToProps = (state,ownProps) => {
   return {
@@ -14,7 +15,10 @@ const mapStateToProps = (state,ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchQuestion: (question) => dispatch(fetchQuestion(question)),
-    deleteQuestion: questionId => dispatch(deleteQuestion(questionId))
+    deleteQuestion: questionId => dispatch(deleteQuestion(questionId)),
+    deleteAnswer: answerId => dispatch(deleteAnswer(answerId)),
+    createAnswer: answer => dispatch(createAnswer(answer)),
+    updateAnswer: answer => dispatch(updateAnswer(answer))
   }
 };
 
