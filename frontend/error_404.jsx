@@ -2,10 +2,7 @@ import React from "react";
 import Root from "./components/root";
 import ReactDOM from "react-dom";
 import configureStore from './store/store'
-import * as questionAction from './actions/question_actions';
-import * as sessionUtil from './util/session_api_util';
-import * as questionApi from './util/question_api_util';
-import * as sessionAction from './actions/session_actions'
+import * as answerUtil from './util/answer_api_util';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,13 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-  window.createUser = sessionAction.signup;
-  window.createQuestion = questionAction.createQuestion;
-  window.fetchQuestion = questionAction.fetchQuestion;
-  window.fetchQuestions = questionAction.fetchQuestions
-  window.updateQuestion = questionAction.updateQuestion;
-  window.deleteQuestion = questionAction.deleteQuestion;
-  window.ajaxFetchQuestions = questionApi.fetchQuestions;
+  window.createAnswer = answerUtil.createAnswer;
+  window.fetchAnswers = answerUtil.fetchAnswers;
+  window.fetchAnswer = answerUtil.fetchAnswer;
+  window.updateAnswer = answerUtil.updateAnswer;
+  window.deleteAnswer = answerUtil.deleteAnswer;
   const store = configureStore(preloadedState);
   window.getState = store.getState;
   window.dispatch = store.dispatch;
