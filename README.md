@@ -89,6 +89,6 @@ These include:
     [image placeholder for edit box]
 
   ### Goals for the future
-    * Implementing an User index page and an User show page
-    * Create a upvote and downvote button for both posts and answers
-    * Implement the functionality of the search bar
+   * Implementing an User index page and an User show page
+   * Create a upvote and downvote button for both posts and answers
+   * Implement the functionality of the search bar
