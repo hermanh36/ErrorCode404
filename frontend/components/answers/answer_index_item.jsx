@@ -20,7 +20,6 @@ class AnswerIndexItem extends React.Component {
     }
   }
   submitHandler() {
-    debugger;
     const editMenu = document.getElementById(`edit-answer-container${this.props.answer.id}`)
     editMenu.classList.toggle('edit-hidden');
     this.props.updateAnswer(this.state)

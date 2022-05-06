@@ -23,7 +23,6 @@ class AnswerForm extends React.Component {
         }
       })
     })
-    debugger;
   }
 
   update(field) {
