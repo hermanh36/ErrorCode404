@@ -20,10 +20,11 @@ class AnswerIndexItem extends React.Component {
     }
   }
   submitHandler() {
+    debugger;
     const editMenu = document.getElementById(`edit-answer-container${this.props.answer.id}`)
     editMenu.classList.toggle('edit-hidden');
     this.props.updateAnswer(this.state)
-    .then(() => this.props.history.push(`/${this.props.question.id}`));
+    .then(() => this.props.fetchQuestion(this.props.question.id));
   }
 
   deleteHandler() {

@@ -12,17 +12,18 @@ class AnswerForm extends React.Component {
     this.props.fetchQuestion(this.props.questionId);
   }
   submitHandler(e) {
-    e.preventDefault();
-    this.setState({ question_id: this.props.question.id })
+    e.preventDefault(); 
+    this.props.fetchQuestion(this.props.question.id).then(() => {
+      this.setState({ question_id: this.props.question.id }, () => {
+        if (!!this.props.currentUserId) {
+          this.props.createAnswer(this.state)
+            .then(() => this.props.fetchQuestion(this.props.question.id));
+        } else {
+          this.props.history.push('/login');
+        }
+      })
+    })
     debugger;
-    this.setState({ question_id: this.props.question.id })
-    if (!!this.props.currentUserId) {
-      debugger;
-      this.props.createAnswer(this.state)
-      .then(() => this.props.history.push(`/${this.question.id}`));
-    } else {
-      this.props.history.push('/login');
-    }
   }
 
   update(field) {
