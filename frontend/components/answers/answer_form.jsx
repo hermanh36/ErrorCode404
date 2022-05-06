@@ -30,6 +30,17 @@ class AnswerForm extends React.Component {
       this.setState({ [field]: e.target.value })
     }
   }
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error+${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     if(!this.props.question) {
@@ -41,6 +52,7 @@ class AnswerForm extends React.Component {
             <label htmlFor="answer-body">Add an Answer</label>
             <textarea name="answer-body" id="answer-body" value={this.state.body} onChange={this.update('body')}></textarea>
             <input type="submit" value="Post Your Answer" />
+            <div className='question-errors'>{this.renderErrors()}</div>
           </form>
         </div>
       )

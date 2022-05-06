@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
         },
         question: ownProps.question,
         currentUserId: state.session.id,
-        history: ownProps.history
+        history: ownProps.history,
+        errors: state.errors.answer
     }
 }
 

@@ -33,7 +33,6 @@ class QuestionForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.edit
   }
   render() {
     if(this.props.currentUserId && this.props.question) {
