@@ -44,6 +44,7 @@ class AnswerIndexItem extends React.Component {
     if (!this.props.question){
       return null
     } else {
+      debugger;
       return (
         <div id='main-answer'>
           <p># upvote</p>
@@ -56,14 +57,17 @@ class AnswerIndexItem extends React.Component {
               <textarea name="edit-answer" className='edit-box'onChange={this.update('body')}id="edit-answer-textarea"></textarea>
               <button onClick={this.submitHandler} className='question-thread-author-edit'>Submit </button>
             </div>
-            {(this.props.currentUserId === this.props.answer.authorId) 
-            ?
-            <div id='answer-buttons-container'>
-              <button onClick={this.editHandler} className='question-thread-author-edit'>Edit</button>
-              <button onClick={this.deleteHandler} className='question-thread-author-delete'>Delete</button>
+            <div id='ans-btn-author-container'>
+              {(this.props.currentUserId === this.props.answer.authorId) 
+              ?
+              <div id='answer-buttons-container'>
+                <button onClick={this.editHandler} className='question-thread-author-edit'>Edit</button>
+                <button onClick={this.deleteHandler} className='question-thread-author-delete'>Delete</button>
+              </div>
+              :
+              <div></div>}
+              <div className='answer-thread-author'>Answered by: {this.props.answer.authorUsername}</div>
             </div>
-            :
-            <div></div>}
           </div>
         </div>
       )

@@ -17,7 +17,6 @@ class QuestionIndex extends React.Component {
     if (this.props.questions) {
       return (
         <div>
-
           <div id='question-index-total'>
             <div id='question-index-fake-left-nav'></div>
             <div id='index-outer-div'>
