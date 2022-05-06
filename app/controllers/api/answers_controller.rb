@@ -1,5 +1,4 @@
 class Api::AnswersController < ApplicationController
-    skip_before_action :verify_authenticity_token
     
     def index
       @answers = Answer.all
