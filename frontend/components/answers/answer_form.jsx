@@ -13,12 +13,13 @@ class AnswerForm extends React.Component {
   }
   submitHandler(e) {
     e.preventDefault();
-    if (!!this.props.currentUserId) { 
-      this.setState({ question_id: this.props.question.id })
-      console.log(this.state.question_id)
+    this.setState({ question_id: this.props.question.id })
+    debugger;
+    this.setState({ question_id: this.props.question.id })
+    if (!!this.props.currentUserId) {
+      debugger;
       this.props.createAnswer(this.state)
-      .then(() => this.props.fetchQuestion(this.props.question.id));
-      this.setState({['body']: ""});
+      .then(() => this.props.history.push(`/${this.question.id}`));
     } else {
       this.props.history.push('/login');
     }
@@ -36,7 +37,7 @@ class AnswerForm extends React.Component {
     } else {
       return (
         <div>
-          <form id='answer-form'onSubmit={this.submitHandler}>
+          <form id='answer-form' onSubmit={this.submitHandler}>
             <label htmlFor="answer-body">Add an Answer</label>
             <textarea name="answer-body" id="answer-body" value={this.state.body} onChange={this.update('body')}></textarea>
             <input type="submit" value="Post Your Answer" />

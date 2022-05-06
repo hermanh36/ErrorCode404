@@ -23,11 +23,9 @@ class AnswerIndexItem extends React.Component {
     const editMenu = document.getElementById(`edit-answer-container${this.props.answer.id}`)
     editMenu.classList.toggle('edit-hidden');
     this.props.updateAnswer(this.state)
-    .then(() => this.props.fetchQuestion(this.props.question.id)).then(() => {
-      this.setState(this.props.answer)
-    })
-
+    .then(() => this.props.history.push(`/${this.props.question.id}`));
   }
+
   deleteHandler() {
     const answer = this.props.answer
     this.props.deleteAnswer(this.props.answer.id).then(() => {

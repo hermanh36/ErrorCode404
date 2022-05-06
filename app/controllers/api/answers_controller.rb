@@ -9,6 +9,7 @@ class Api::AnswersController < ApplicationController
     def create
       @answer = Answer.new(answers_params)
       @answer.author_id = current_user.id
+      debugger;
       if @answer.save
         render 'api/answers/show'
       else
@@ -18,6 +19,7 @@ class Api::AnswersController < ApplicationController
   
     def update
       @answer = Answer.find_by(id: params[:id])
+      debugger;
       if @answer.author_id != current_user.id
         render json: ['You are not the author of this'], status: 422
       elsif (@answer.update(answers_params))
