@@ -1,12 +1,11 @@
 .main-pane-container {
   display: flex;
   justify-content: center;
+  margin-top:47px;
 }
 
 .main-pane {
-  margin-top: 100px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-top: 2vh;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -15,14 +14,14 @@
 }
 .homepage-background {
   background: #252624;
-  margin-left: 300px;
-  margin-right: 300px;
+  width: 80%;
+  margin:0 auto;
   padding-bottom: 100px;
 }
 
 .outro-background {
-  margin-left: 300px;
-  margin-right:300px;
+  width: 80%;
+  margin: 0 auto;
   margin-bottom: -10px;
   background-color: rgb(202, 180, 121);
 }
@@ -108,14 +107,14 @@
 .about-container {
   display:flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  align-items: center;
+  justify-content:center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 
 .backend-description-container {
-  width: 260px;
+  width: 20%;
   border: 1px solid black;
   text-align: center;
   left: 50px;
@@ -123,7 +122,7 @@
   padding:10px;
   box-shadow: 0 0 8px black;
   border-radius: 7px;
-  margin-left: 300px;
+  margin-left: 20%;
 }
 .backend-description-container * {
   color: rgb(34, 33, 33);
@@ -132,7 +131,7 @@
 }
 
 .frontend-description-container {
-  width: 230px;
+  width: 20%;
   border: 1px solid black;
   padding-top: 7px;
   text-align: center;
@@ -142,7 +141,7 @@
   padding-bottom:18px;
   box-shadow: 0 0 8px black;
   border-radius: 7px;
-  margin-right: 250px;
+  margin-right: 20%;
 }
 
 .frontend-description-container * {
@@ -152,15 +151,15 @@
 }
 
 .functionality-description-container {
-  width:250px;
+  width:20%;
   border: 1px solid black;
   text-align: center;
+  margin: 0 auto;
   margin-top: -80px;
   padding: 10px;
   background-color: rgb(214, 205, 205);
   box-shadow: 0 0 8px black;
   border-radius: 7px;
-  margin-right: 40px;
 }
 
 .functionality-description-container * {
@@ -170,7 +169,8 @@
 }
 
 .splash-about {
-  width: 800px;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .splash-about * {
@@ -184,14 +184,14 @@
   1px 1px rgb(28, 43, 43),
   -1px -1px 0 rgb(28, 43, 43),
   1px -1px 0 rgb(28, 43, 43),
-  -1px 1px 0 rgb(28, 43, 43),;
-
+  -1px 1px 0 rgb(28, 43, 43),; 
 }
 
 
 .intro-container > h1{
-  width: 650px;
+  width: 60%;
   color: white;
+  font-size: 26px;
   text-shadow: 2px 0 0 black,
   -2px 0 0 black,
   0 2px 0 black,
@@ -207,21 +207,21 @@
 }
 
 .homepage-bar {
-  width: 1000px;
+  width: 70%;
   height: 5px;
   background-color: white;
   border: 1px solid silver;
   border-radius: 5px;
-  margin: 6px 0;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
 }
 
 .join-parent {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .question p {
@@ -317,7 +317,9 @@
   -1px 1px 0 black;
 }
 #outro-text {
-  margin-bottom: 20px;
+  margin: 0 auto;
+  margin-top: 5vh;
+  margin-left: 0vh;
 }
 #outro-icon {
   width:120px;

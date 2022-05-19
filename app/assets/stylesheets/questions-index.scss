@@ -1,5 +1,29 @@
+#index-outer-div {
+  width: 70%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-index-main{
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+
+.app-wrap{
+  // display: flex;
+  width:100%;
+  height: 100vh;
+  justify-content: flex-start;
+}
+
 #question-index-container  {
-  margin: 50px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 3vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #question-item-container {
@@ -9,9 +33,12 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-right:200px;
-  padding-left: 20px;
+  // margin-right:200px;
+  // padding-left: 20px;
   background-color: white;
+  padding-top:15px;
+  padding-bottom: 15px;
+  margin-left: 10vw;
 }
 
 #question-index-list > :first-child > :first-child {
@@ -23,15 +50,20 @@
 
 
 #question-index-list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
 }
 
 #question-main-container {
-  margin-left: 200px;
   padding-right: 10px;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 5vw;
 }
 #question-main-container > #question-author {
- margin-left: 500px;
  font-size: 14px;
  color:rgb(55, 154, 194);
 }
@@ -54,8 +86,17 @@
 #questions-header-container {
   display:flex;
   flex-direction: row;
-  justify-content:space-evenly;
   align-items: center;
+  justify-content: space-around;
+  margin-top: 2%;
+  width: 80%;
+  margin-left: 20%;
+  
+}
+
+#questions-header-container h1 {
+  font-weight: bold;
+  font-size: 26px;
 }
 
 .ask-question {
@@ -66,8 +107,6 @@
   color:white;
   font-weight:bold;
   font-size:14px;
-  margin-top:5px;
-  margin-left: -200px;
 }
 
 .ask-question:hover {
@@ -84,6 +123,8 @@
 
 #question-index-total {
   display: flex;
+  margin-top: 5vh;
+  border-left: 2px solid lightgray;
 }
 
 #question-index-fake-left-nav {
@@ -91,9 +132,11 @@
   border-left: 2px solid lightgrey;
 }
 
-#question-index-fake-right-nav {
-  margin-right:450px;
+#question-author p  {
+  float:right;
 }
-#question-index-total {
-  margin-top: 50px;
+
+.side-nav-to-component{
+  display:flex;
+  width: 100%;
 }

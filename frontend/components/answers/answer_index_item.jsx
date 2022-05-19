@@ -44,18 +44,20 @@ class AnswerIndexItem extends React.Component {
     if (!this.props.question){
       return null
     } else {
-      debugger;
+      // debugger;
       return (
         <div id='main-answer'>
-          <p># upvote</p>
+          <p id='answer-upvote'># upvote</p>
           <div id='main-answer-body'>
-            <p>
-            {this.props.answer.body}
-            </p>
-            <div id={`edit-answer-container${this.props.answer.id}`} className='edit-hidden'>
-              <label className='edit-answer-label'htmlFor="edit-answer">Edit Your Answer</label>
-              <textarea name="edit-answer" className='edit-box'onChange={this.update('body')}id="edit-answer-textarea"></textarea>
-              <button onClick={this.submitHandler} className='question-thread-author-edit'>Submit </button>
+            <div className='edit-ans-body'>
+              <p id='answer-body-item'>
+              {this.props.answer.body}
+              </p>
+              <div id={`edit-answer-container${this.props.answer.id}`} className='edit-hidden'>
+                <label className='edit-answer-label'htmlFor="edit-answer">Edit Your Answer</label>
+                <textarea name="edit-answer" className='edit-box'onChange={this.update('body')}id="edit-answer-textarea"></textarea>
+                <button onClick={this.submitHandler} className='question-thread-author-edit'>Submit </button>
+              </div>
             </div>
             <div id='ans-btn-author-container'>
               {(this.props.currentUserId === this.props.answer.authorId) 

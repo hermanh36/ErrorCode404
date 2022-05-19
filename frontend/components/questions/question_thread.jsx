@@ -33,29 +33,32 @@ class QuestionThread extends React.Component {
       return (
         <div>
           <div id='outer-thread-container'>
-            <div></div>
-            <div id='question-thread-container'>
-              <div id='question-thread-header'>
-                <h1>{this.props.question.title}</h1>
-                <div><Link to="/ask"><button className='ask-question' id='question-thread-ask-question'>Ask Question</button></Link></div>
-              </div>
-              <div id='main-question-container'>
-                <div id='main-question'>
-                  <p># upvote</p>
-                  <div id='main-question-body'><p>{this.props.question.body}</p></div>
+            <div id='question-thread-header'>
+              <h1>{this.props.question.title}</h1>
+              <div><Link to="/ask"><button className='ask-question' id='question-thread-ask-question'>Ask Question</button></Link></div>
+            </div>
+            <div id='main-question-container'>
+              <div id='main-question'>
+                <p id='question-upvote'># upvote</p>
+                <div id='main-question-body'>
+                  <p>{this.props.question.body}</p>
+                  <div id='thread-btn-and-author'>
+                    {(this.props.currentUserId === this.props.question.authorId) ?
+                    <div className='question-thread-buttons'>
+                      <button onClick={this.editHandler} className='question-thread-author-edit'>Edit</button>
+                      <button onClick={this.deleteHandler} className='question-thread-author-delete'>Delete</button>
+                    </div>
+                    :
+                    <div></div>}
+                    <div className='question-thread-author'>Asked by: {this.props.question.authorUsername}</div>
+                  </div>
                 </div>
-                {(this.props.currentUserId === this.props.question.authorId) ?
-                <div className='question-thread-buttons'>
-                  <button onClick={this.editHandler} className='question-thread-author-edit'>Edit</button>
-                  <button onClick={this.deleteHandler} className='question-thread-author-delete'>Delete</button>
-                </div>
-                :
-                <div></div>}
-                <div className='question-thread-author'>Asked by: {this.props.question.authorUsername}</div>
               </div>
-              <div>
-                <div id='main-answer-container'>
-                  <h1>Answers</h1>
+            </div>
+            <div id='answer-body-form-wrap'>
+              <div id='main-answer-container'>
+                <div>
+                  <h1 id="answer-heading">Answers</h1>
                   {this.props.question.answers?.map((answer,idx) => {
                     return <div id='each-answer-container' key={idx}><AnswerIndexItem  answer={answer} deleteAnswer={this.props.deleteAnswer} history={this.props.history}
                     question={this.props.question} fetchQuestion={this.props.fetchQuestion} 
@@ -63,11 +66,8 @@ class QuestionThread extends React.Component {
                   })}
                 </div>
               </div>
-              <div>
-                <AnswerFormContainer question ={this.props.question} history={this.props.history}/>
-              </div>
+              <AnswerFormContainer question ={this.props.question} history={this.props.history}/>
             </div>
-            <div></div>
           </div>
         </div>
       )

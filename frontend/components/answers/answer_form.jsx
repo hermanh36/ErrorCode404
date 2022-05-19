@@ -48,8 +48,8 @@ class AnswerForm extends React.Component {
       return null
     } else {
       return (
-        <div>
-          <form id='answer-form' onSubmit={this.submitHandler}>
+        <div id='answer-form'>
+          <form id='answer-form-form' onSubmit={this.submitHandler}>
             <label htmlFor="answer-body">Add an Answer</label>
             <textarea name="answer-body" id="answer-body" value={this.state.body} onChange={this.update('body')}></textarea>
             <input type="submit" value="Post Your Answer" />

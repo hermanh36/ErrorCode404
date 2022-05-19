@@ -17,13 +17,15 @@ const App = () => (
     <AuthRoute exact path="/" component={HomePage} />
     <Route path="/login" component={LoginFormContainer}/>
     <AuthRoute path="/signup" component={SignUpFormContainer} />
+    <div className='side-nav-to-component'>
     <Route path ="/questions" component={LeftNav}/>
-      <Switch>
-        <ProtectedRoute exact path="/ask" component={QuestionFormContainer} />
-        <ProtectedRoute exact path="/:questionId/edit" component={EditQuestionContainer}/>
-        <Route  path="/questions/:questionId" component={QuestionThreadContainer} />
-        <Route  path="/questions" component={QuestionIndexContainer}/>
-      </Switch>
+    <Switch>
+      <ProtectedRoute exact path="/ask" component={QuestionFormContainer} />
+      <ProtectedRoute exact path="/:questionId/edit" component={EditQuestionContainer}/>
+      <Route  path="/questions/:questionId" component={QuestionThreadContainer} />
+      <Route  path="/questions" component={QuestionIndexContainer}/>
+    </Switch>
+    </div>
   </div>
 )
 

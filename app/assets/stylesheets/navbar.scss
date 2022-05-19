@@ -21,8 +21,6 @@
   width:100%;
   position:fixed;
   border-top: 5px solid orange;
-  margin-top: -10px;
-  margin-left:-10px;
   z-index: 20;
 }
 .nav-search {
@@ -38,12 +36,13 @@
 .nav-drop-down-content {
   display: none;
   position: absolute;
-  min-width: 200px;
+  min-width: 10vw;
   background: #F0F0F0;
   border: 1px solid lightgray;
   border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
   border-radius: 5px;
+
 }
 
 .logged-in-left-nav {
@@ -52,7 +51,9 @@
 }
 
 .nav-drop-down-content.change {
-  display:block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 10;
 }
 #nav-icon{

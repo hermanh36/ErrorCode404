@@ -16,9 +16,9 @@ class QuestionIndex extends React.Component {
   render() {
     if (this.props.questions) {
       return (
-        <div>
+        <div className="question-index-main">
           <div id='question-index-total'>
-            <div id='question-index-fake-left-nav'></div>
+            {/* <div id='question-index-fake-left-nav'></div> */}
             <div id='index-outer-div'>
               <div id='questions-header-container'>
                 <h1>Questions</h1>
