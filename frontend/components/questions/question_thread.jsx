@@ -9,10 +9,18 @@ class QuestionThread extends React.Component {
     super(props);
     this.editHandler = this.editHandler.bind(this);
     this.deleteHandler = this.deleteHandler.bind(this);
+    this.state = {};
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.questionId)
+    this.props.fetchQuestion(this.props.questionId,() => {
+      this.setState(this.props.question);
+    })
+  }
+  componentDidUpdate() {
+    if(!this.props.question){
+      this.props.fetchQuestion(this.props.questionId);
+    }
   }
 
   editHandler() {
@@ -28,7 +36,7 @@ class QuestionThread extends React.Component {
 
   render() {
     if (!this.props.question) {
-      return null
+      return null;
     } else {
       return (
         <div>
