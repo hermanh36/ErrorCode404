@@ -140,3 +140,9 @@
   display:flex;
   width: 100%;
 }
+
+#question-item-votes-answers-container {
+  display:flex;
+  flex-direction: column;
+  width:7vw;
+}

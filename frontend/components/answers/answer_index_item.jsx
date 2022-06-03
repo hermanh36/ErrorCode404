@@ -47,7 +47,11 @@ class AnswerIndexItem extends React.Component {
       // debugger;
       return (
         <div id='main-answer'>
-          <p id='answer-upvote'># upvote</p>
+          <div class='answer-votes'>
+            <div class='upvote'></div>
+            <p id='answer-upvote'>{this.props.votes?.this.props.answer.id ? this.props.votes[this.props.answer.id] : 0  }</p>
+            <div class='downvote'></div>
+          </div>
           <div id='main-answer-body'>
             <div className='edit-ans-body'>
               <p id='answer-body-item'>

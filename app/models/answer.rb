@@ -8,4 +8,7 @@ class Answer < ApplicationRecord
     belongs_to :question,
         foreign_key: :question_id,
         class_name: :Question
+    
+    has_many :votes, as: :votable
+
 end

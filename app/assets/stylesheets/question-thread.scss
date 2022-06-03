@@ -1,5 +1,4 @@
 #outer-thread-container {
-  margin-top: 10vh;
   padding: 20%;
   border-left: 2px solid lightgray;
   display: flex;
@@ -139,4 +138,42 @@
 }
 #question-upvote {
   margin-right: 1%;
+}
+
+.downvote {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid gray;
+  margin-top: 1vh;
+}
+
+.upvote {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid gray;
+  margin-bottom: 1vh;
+}
+
+.upvote:hover, .downvote:hover {
+  cursor:pointer;
+}
+
+.upvote:hover {
+  border-bottom: 20px solid rgb(63, 62, 62)
+}
+
+.downvote:hover {
+  border-top: 20px solid rgb(63, 62, 62)
+}
+
+.question-votes {
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2vw;
 }

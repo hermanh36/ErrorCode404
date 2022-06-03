@@ -10,7 +10,6 @@ class QuestionIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuestions();
-
   }
 
   render() {
@@ -27,7 +26,7 @@ class QuestionIndex extends React.Component {
               <div id='question-index-container'>
                 <ul id='question-index-list'>
                 {this.props.questions.map((question,idx) => (
-                  <QuestionIndexItem question={question} key={idx} history={this.props.history}/>
+                  <QuestionIndexItem fetchAnswers={this.props.fetchAnswers} fetchVote={this.props.fetchVote} question={question} key={idx} history={this.props.history}/>
                 ))}
                 </ul>
               </div>
