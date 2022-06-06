@@ -12,6 +12,7 @@ class QuestionThread extends React.Component {
     this.deleteHandler = this.deleteHandler.bind(this);
     this.state = {};
     this.onUpVote = this.onUpVote.bind(this);
+    this.onDownVote = this.onDownVote.bind(this);
   }
 
   componentDidMount() {
@@ -65,11 +66,36 @@ class QuestionThread extends React.Component {
   async onUpVote() {
     let voteId = await this.checkIfVoted('upvote')
     if (!voteId) {
-      await this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'})
+      voteId = await this.checkIfVoted('downvote')
+      if (!voteId) {
+        await this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'})
+      } else {
+        this.props.destroyVote(voteId)
+        .then(this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'}))
+      }    
     } else {
       await this.props.destroyVote(voteId)
     }
   }
+
+  async onDownVote() {
+    let voteId = await this.checkIfVoted('downvote')
+    debugger;
+    if (!voteId) {
+      voteId = await this.checkIfVoted('upvote')
+      if (!voteId) {
+        await this.props.createVote({votable_id: this.props.question.id, vote_type: 'downvote', votable_type: 'Question'})
+      } else {
+        debugger;
+        this.props.destroyVote(voteId)
+        .then(this.props.createVote({votable_id: this.props.question.id, vote_type: 'downvote', votable_type: 'Question'}))
+      }    
+    } else {
+      await this.props.destroyVote(voteId)
+    }
+  }
+
+  
 
   numQuestionVotes(questionId) {
     let counter = 0;
@@ -99,7 +125,7 @@ class QuestionThread extends React.Component {
                 <div className='question-votes'>
                   <div className='upvote' onClick={this.onUpVote}></div>
                   <p id='question-upvote'>{Object.values(this.props.votes).length > 0 ? this.numQuestionVotes(this.props.question.id) : 0  }</p>
-                  <div className='downvote'></div>
+                  <div className='downvote' onClick={this.onDownVote}></div>
                 </div>
                 <div id='main-question-body'>
                   <p>{this.props.question.body}</p>
