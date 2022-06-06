@@ -36,40 +36,46 @@ class QuestionThread extends React.Component {
     })
   }
 
-  async checkIfVoted() {
+  async checkIfVoted(voteType) {
+    await this.setState({questionVotes:this.props.votes})
     let voteId = null;
-    this.props.fetchVote(this.props.questionId)
+    await this.props.fetchVote(this.props.questionId)
     .then(votes => {
-      if (votes && Object.values(votes).length > 0) {
-        let votesArr = Object.values(votes);
-        votesArr.forEach(vote => {
-          if (vote.voterId === this.props.currentUserId) {
-            voteId = vote.id;
+      if (votes){
+        this.setState({questionVotes:votes.votes})  
+      }
+    })
+    .then(() => {
+      if (this.state.questionVotes){
+        Object.values(this.state.questionVotes).forEach( vote => {
+          if (vote.voteType === voteType) {
+            if (vote.votableType === 'Question') {
+              if (vote.voterId === this.props.currentUserId) {
+                voteId = vote.id
+              }
+            }
           }
         })
       }
     })
-    return await voteId;
+    return voteId
   }
 
 
   async onUpVote() {
-    let voteId = null;
-    voteId = await this.checkIfVoted()
-    if (voteId === null) {
-      debugger;
-      this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'})
+    let voteId = await this.checkIfVoted('upvote')
+    if (!voteId) {
+      await this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'})
     } else {
-      this.props.destroyVote(voteId)
+      await this.props.destroyVote(voteId)
     }
-
   }
 
   numQuestionVotes(questionId) {
     let counter = 0;
     let votes = Object.values(this.props.votes)
     votes.forEach(vote => {
-      debugger;
+
       if (vote.votableId === questionId && vote.votableType === 'Question'){
         counter+=1;
       }
@@ -81,7 +87,6 @@ class QuestionThread extends React.Component {
     if (!this.props.question) {
       return null;
     } else {
-      debugger;
       return (
         <div>
           <div id='outer-thread-container'>

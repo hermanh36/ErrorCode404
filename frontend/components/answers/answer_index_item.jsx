@@ -44,7 +44,6 @@ class AnswerIndexItem extends React.Component {
     if (!this.props.question){
       return null
     } else {
-      // debugger;
       return (
         <div id='main-answer'>
           <div class='answer-votes'>

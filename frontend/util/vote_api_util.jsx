@@ -9,7 +9,7 @@ export const createVote = (vote) => {
 
 export const destroyVote = (voteId) => {
     return $.ajax({
-        method: 'destroy',
+        method: 'delete',
         url: `/api/votes/${voteId}`
     })
 }

@@ -12,8 +12,8 @@ class Api::VotesController < ApplicationController
     end
 
     def show
-        @vote = Vote.find_by(votable_id: params[:id])
-        render 'api/votes/show'
+        @votes = Vote.where(votable_id: params[:id])
+        render 'api/votes/index'
     end
     
     def destroy

@@ -1,6 +1,5 @@
 import {RECEIVE_VOTE, RECEIVE_VOTES, RECEIVE_VOTE_ERRORS, REMOVE_VOTE} from '../actions/votes_action';
 
-
 const voteReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
@@ -8,7 +7,9 @@ const voteReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_VOTES:
             if (action.votes){
-                newState = Object.values(action.votes);
+                Object.values(action.votes).forEach(vote => {
+                    newState[vote.id] = vote
+                })
                 return newState;
             } else {
                 return {};
@@ -20,6 +21,7 @@ const voteReducer = (state = {}, action) => {
             newState[action.vote.id] = action.vote;
             return newState;
         case REMOVE_VOTE:
+            debugger;
             delete newState[action.voteId];
             return newState;
         default:

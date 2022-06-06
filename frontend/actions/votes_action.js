@@ -55,7 +55,7 @@ export const fetchVote = postId => dispatch => {
     return (
         voteUtil.fetchVote(postId).then((vote) => {
             if (Object.values(vote).length > 0) {
-                dispatch(receiveVote(vote))
+                return dispatch(receiveVotes(vote))
             }
         })
     )
