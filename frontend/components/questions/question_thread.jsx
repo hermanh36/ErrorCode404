@@ -98,15 +98,18 @@ class QuestionThread extends React.Component {
   
 
   numQuestionVotes(questionId) {
-    let counter = 0;
+    let sumVotes = 0;
     let votes = Object.values(this.props.votes)
     votes.forEach(vote => {
-
       if (vote.votableId === questionId && vote.votableType === 'Question'){
-        counter+=1;
+        if(vote.voteType === 'upvote') {
+          sumVotes +=1;
+        } else {
+          sumVotes -=1;
+        }
       }
     })
-    return counter;
+    return sumVotes;
   }
 
   render() {
