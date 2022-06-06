@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AnswerIndexItem from '../answers/answer_index_item';
 import AnswerFormContainer from '../answers/answer_form_container';
+import AnswerIndexItemContainer from '../answers/answer_index_item_container';
 require("babel-polyfill");
 
 
@@ -150,9 +151,10 @@ class QuestionThread extends React.Component {
                 <div>
                   <h1 id="answer-heading">Answers</h1>
                   {this.props.question.answers?.map((answer,idx) => {
-                    return <div id='each-answer-container' fetchVotes={this.props.fetchVotes} key={idx}><AnswerIndexItem  answer={answer} deleteAnswer={this.props.deleteAnswer} history={this.props.history}
+                    return <div id='each-answer-container'  key={idx}><AnswerIndexItemContainer answer={answer} 
+                    deleteAnswer={this.props.deleteAnswer}  history={this.props.history} 
                     question={this.props.question} fetchQuestion={this.props.fetchQuestion} 
-                    currentUserId={this.props.currentUserId} updateAnswer={this.props.updateAnswer} /></div>
+                    updateAnswer={this.props.updateAnswer} /></div>
                   })}
                 </div>
               </div>
