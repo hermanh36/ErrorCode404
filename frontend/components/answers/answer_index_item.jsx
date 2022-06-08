@@ -139,7 +139,7 @@ class AnswerIndexItem extends React.Component {
           <div class='answer-votes'>
             <div class='upvote' onClick={this.onUpVote}></div>
             <p id='answer-upvote'>{Object.values(this.state.answerVotes).length > 0 ? this.numQuestionVotes(this.props.answer.id) : 0  }</p>
-            <div class='downvote'></div>
+            <div class='downvote' onClick={this.onDownVote}></div>
           </div>
           <div id='main-answer-body'>
             <div className='edit-ans-body'>
