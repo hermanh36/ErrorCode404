@@ -6,7 +6,10 @@ const questionsReducer = (state = {}, action) => {
   
   switch (action.type) {
     case RECEIVE_QUESTIONS:
-      newState = Object.values(action.questions);
+      newState = {};
+      Object.values(action.questions).forEach(question => {
+        newState[question.id] = question
+      })
       return newState;
     case RECEIVE_QUESTION:
       newState[action.question.id] = action.question;

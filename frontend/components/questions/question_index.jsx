@@ -1,5 +1,5 @@
 import React from 'react'
-import QuestionIndexItem from './question_index_item';
+import QuestionIndexItemContainer from './question_index_item_container';
 import { Link } from 'react-router-dom';
 
 
@@ -11,6 +11,7 @@ class QuestionIndex extends React.Component {
   componentDidMount() {
     this.props.fetchQuestions();
   }
+
 
   render() {
     if (this.props.questions) {
@@ -26,7 +27,7 @@ class QuestionIndex extends React.Component {
               <div id='question-index-container'>
                 <ul id='question-index-list'>
                 {this.props.questions.map((question,idx) => (
-                  <QuestionIndexItem fetchAnswers={this.props.fetchAnswers} fetchVote={this.props.fetchVote} question={question} key={idx} history={this.props.history}/>
+                  <QuestionIndexItemContainer fetchAnswers={this.props.fetchAnswers} fetchVote={this.props.fetchVote} question={question} key={idx} history={this.props.history}/>
                 ))}
                 </ul>
               </div>

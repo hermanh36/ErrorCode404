@@ -19,6 +19,13 @@ class QuestionThread extends React.Component {
   componentDidMount() {
     this.props.fetchQuestion(this.props.questionId)
     this.props.fetchVote(this.props.questionId)
+    .then((resp) => {
+      if (resp) {
+        this.setState({questionVote: resp.votes})
+      } else {
+        this.setState({questionVote: {}});
+      }
+    }) 
   }
 
   componentDidUpdate() {
@@ -39,19 +46,19 @@ class QuestionThread extends React.Component {
   }
 
   async checkIfVoted(voteType) {
-    await this.setState({questionVotes:this.props.votes})
+    await this.setState({questionVote:this.props.votes})
     let voteId = null;
     await this.props.fetchVote(this.props.questionId)
     .then(votes => {
       if (votes){
-        this.setState({questionVotes:votes.votes})  
+        this.setState({questionVote:votes.votes})  
       }
     })
     .then(() => {
-      if (this.state.questionVotes){
-        Object.values(this.state.questionVotes).forEach( vote => {
+      if (this.state.questionVote){
+        Object.values(this.state.questionVote).forEach( vote => {
           if (vote.voteType === voteType) {
-            if (vote.votableType === 'Question') {
+            if (vote.votableType === 'Question' && (parseInt(vote.votableId) === parseInt(this.props.questionId))) {
               if (vote.voterId === this.props.currentUserId) {
                 voteId = vote.id
               }
@@ -69,30 +76,34 @@ class QuestionThread extends React.Component {
     if (!voteId) {
       voteId = await this.checkIfVoted('downvote')
       if (!voteId) {
-        await this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'})
+        await this.props.createVote({votable_id: this.props.questionId, vote_type: 'upvote', votable_type: 'Question'})
+        .then(() => this.setState({questionVote:this.props.votes}))
       } else {
-        this.props.destroyVote(voteId)
-        .then(this.props.createVote({votable_id: this.props.question.id, vote_type: 'upvote', votable_type: 'Question'}))
+        await  this.props.destroyVote(voteId)
+        .then(() => this.props.createVote({votable_id: this.props.questionId, vote_type: 'upvote', votable_type: 'Question'}))
+        .then(() => this.setState({questionVote: this.props.votes}))
       }    
     } else {
       await this.props.destroyVote(voteId)
+      .then(() => this.setState({questionVote:this.props.votes}))
     }
   }
 
   async onDownVote() {
     let voteId = await this.checkIfVoted('downvote')
-    debugger;
     if (!voteId) {
       voteId = await this.checkIfVoted('upvote')
       if (!voteId) {
         await this.props.createVote({votable_id: this.props.question.id, vote_type: 'downvote', votable_type: 'Question'})
+        .then(() => this.setState({questionVote:this.props.votes}))
       } else {
-        debugger;
-        this.props.destroyVote(voteId)
-        .then(this.props.createVote({votable_id: this.props.question.id, vote_type: 'downvote', votable_type: 'Question'}))
+        await this.props.destroyVote(voteId)
+        .then(() => this.props.createVote({votable_id: this.props.question.id, vote_type: 'downvote', votable_type: 'Question'}))
+        .then(() => this.setState({questionVote:this.props.votes}))
       }    
     } else {
       await this.props.destroyVote(voteId)
+      .then(() => this.setState({questionVote:this.props.votes}))
     }
   }
 
@@ -100,9 +111,9 @@ class QuestionThread extends React.Component {
 
   numQuestionVotes(questionId) {
     let sumVotes = 0;
-    let votes = Object.values(this.props.votes)
+    let votes = Object.values(this.state.questionVote)
     votes.forEach(vote => {
-      if (vote.votableId === questionId && vote.votableType === 'Question'){
+      if (parseInt(vote.votableId) === parseInt(questionId) && vote.votableType === 'Question'){
         if(vote.voteType === 'upvote') {
           sumVotes +=1;
         } else {
@@ -114,7 +125,7 @@ class QuestionThread extends React.Component {
   }
 
   render() {
-    if (!this.props.question) {
+    if (!this.props.question || !this.state.questionVote) {
       return null;
     } else {
       return (
@@ -128,7 +139,7 @@ class QuestionThread extends React.Component {
               <div id='main-question'>
                 <div className='question-votes'>
                   <div className='upvote' onClick={this.onUpVote}></div>
-                  <p id='question-upvote'>{Object.values(this.props.votes).length > 0 ? this.numQuestionVotes(this.props.question.id) : 0  }</p>
+                  <p id='question-upvote'>{Object.values(this.state.questionVote).length > 0 ? this.numQuestionVotes(this.props.questionId) : 0 }</p>
                   <div className='downvote' onClick={this.onDownVote}></div>
                 </div>
                 <div id='main-question-body'>
@@ -151,10 +162,10 @@ class QuestionThread extends React.Component {
                 <div>
                   <h1 id="answer-heading">Answers</h1>
                   {this.props.question.answers?.map((answer,idx) => {
-                    return <div id='each-answer-container'  key={idx}><AnswerIndexItemContainer answer={answer} 
+                    return (<div id='each-answer-container'  key={idx}><AnswerIndexItemContainer answer={answer} 
                     deleteAnswer={this.props.deleteAnswer}  history={this.props.history} 
                     question={this.props.question} fetchQuestion={this.props.fetchQuestion} 
-                    updateAnswer={this.props.updateAnswer} /></div>
+                    updateAnswer={this.props.updateAnswer} /></div>)
                   })}
                 </div>
               </div>

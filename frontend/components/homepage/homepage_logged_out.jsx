@@ -30,7 +30,7 @@ class HomePage extends React.Component {
                     find the answer to all your bugs!</p>
                   <Link to='/signup' className='homepage-join-now-link'><div>Join Now</div></Link>
                 </div>
-                <div className='upvote'>
+                <div className='upvotes'>
                   <img src={window.transferURL} />
                   <p>Upvote and Downvote</p>
                   <p>Vote on Questions</p>

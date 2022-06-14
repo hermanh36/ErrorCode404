@@ -6,6 +6,7 @@ const voteReducer = (state = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_VOTES:
+            newState = {};  
             if (action.votes){
                 Object.values(action.votes).forEach(vote => {
                     newState[vote.id] = vote
@@ -21,7 +22,6 @@ const voteReducer = (state = {}, action) => {
             newState[action.vote.id] = action.vote;
             return newState;
         case REMOVE_VOTE:
-            debugger;
             delete newState[action.voteId];
             return newState;
         default:

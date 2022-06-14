@@ -17,8 +17,9 @@ class AnswerForm extends React.Component {
       this.setState({ question_id: this.props.question.id }, () => {
         if (!!this.props.currentUserId) {
           this.props.createAnswer(this.state)
+            .then(() => this.setState({body: ''}))
             .then(() => this.props.fetchQuestion(this.props.question.id))
-            .then(() => this.props.fetchAnswerErrors);
+            .then(() => this.props.fetchAnswerErrors)
         } else {
           this.props.history.push('/login');
         }

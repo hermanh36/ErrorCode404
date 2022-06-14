@@ -23,11 +23,6 @@ class AnswerIndexItem extends React.Component {
     })    
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.votes !== this.props.votes) {
-      this.setState({answerVotes: this.props.votes})
-    }
-  }
 
   async checkIfVoted(voteType) {
     await this.setState({answerVotes:this.props.votes})
@@ -42,7 +37,7 @@ class AnswerIndexItem extends React.Component {
       if (this.state.answerVotes){
         Object.values(this.state.answerVotes).forEach( vote => {
           if (vote.voteType === voteType) {
-            if (vote.votableType === 'Answer') {
+            if (vote.votableType === 'Answer' && (parseInt(vote.votableId) === parseInt(this.props.answer.id))) {
               if (vote.voterId === this.props.currentUserId) {
                 voteId = vote.id
               }
@@ -62,13 +57,15 @@ class AnswerIndexItem extends React.Component {
       voteId = await this.checkIfVoted('downvote')
       if (!voteId) {
         await this.props.createVote({votable_id: this.props.answer.id, vote_type: 'upvote', votable_type: 'Answer'})
-        .then(this.setState({answerVotes:this.props.votes}))
+        .then(() => this.setState({answerVotes:this.props.votes}))
       } else {
         this.props.destroyVote(voteId)
-        .then(this.props.createVote({votable_id: this.props.answer.id, vote_type: 'upvote', votable_type: 'Answer'}))
+        .then(() => this.props.createVote({votable_id: this.props.answer.id, vote_type: 'upvote', votable_type: 'Answer'}))
+        .then(() => this.setState({answerVotes: this.props.votes}) )
       }    
     } else {
       await this.props.destroyVote(voteId)
+      .then(() => this.setState({answerVotes:this.props.votes}))
     }
   }
 
@@ -78,19 +75,21 @@ class AnswerIndexItem extends React.Component {
       voteId = await this.checkIfVoted('upvote')
       if (!voteId) {
         await this.props.createVote({votable_id: this.props.answer.id, vote_type: 'downvote', votable_type: 'Answer'})
-        .then(this.setState({answerVotes:this.props.votes}))
+        .then(() => this.setState({answerVotes:this.props.votes}))
       } else {
         this.props.destroyVote(voteId)
-        .then(this.props.createVote({votable_id: this.props.answer.id, vote_type: 'downvote', votable_type: 'Answer'}))
+        .then(() => this.props.createVote({votable_id: this.props.answer.id, vote_type: 'downvote', votable_type: 'Answer'}))
+        .then(() => this.setState({answerVotes: this.props.votes}) )
       }    
     } else {
       await this.props.destroyVote(voteId)
+      .then(() => this.setState({answerVotes: this.props.votes}) )
     }
   }
 
-  numQuestionVotes(answerId) {
+  numAnswerVotes(answerId) {
     let sumVotes = 0;
-    let votes = Object.values(this.props.votes)
+    let votes = Object.values(this.state.answerVotes)
     votes.forEach(vote => {
       if (vote.votableId === answerId && vote.votableType === 'Answer'){
         if(vote.voteType === 'upvote') {
@@ -138,7 +137,7 @@ class AnswerIndexItem extends React.Component {
         <div id='main-answer'>
           <div class='answer-votes'>
             <div class='upvote' onClick={this.onUpVote}></div>
-            <p id='answer-upvote'>{Object.values(this.state.answerVotes).length > 0 ? this.numQuestionVotes(this.props.answer.id) : 0  }</p>
+            <p id='answer-upvote'>{Object.values(this.state.answerVotes).length > 0 ? this.numAnswerVotes(this.props.answer.id) : 0  }</p>
             <div class='downvote' onClick={this.onDownVote}></div>
           </div>
           <div id='main-answer-body'>
@@ -148,7 +147,7 @@ class AnswerIndexItem extends React.Component {
               </p>
               <div id={`edit-answer-container${this.props.answer.id}`} className='edit-hidden'>
                 <label className='edit-answer-label'htmlFor="edit-answer">Edit Your Answer</label>
-                <textarea name="edit-answer" className='edit-box'onChange={this.update('body')}id="edit-answer-textarea"></textarea>
+                <textarea name="edit-answer" className='edit-box'onChange={this.update('body')}id="edit-answer-textarea">{this.props.answer.body}</textarea>
                 <button onClick={this.submitHandler} className='question-thread-author-edit'>Submit </button>
               </div>
             </div>
