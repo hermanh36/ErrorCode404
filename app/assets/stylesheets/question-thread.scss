@@ -149,6 +149,15 @@
   margin-top: 1vh;
 }
 
+.downvoted {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid green;
+  margin-top: 1vh;
+}
+
 .upvote {
   width: 0; 
   height: 0; 
@@ -156,6 +165,19 @@
   border-right: 20px solid transparent;
   border-bottom: 20px solid gray;
   margin-bottom: 1vh;
+}
+
+.upvoted {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid green;
+  margin-bottom: 1vh;
+}
+
+.upvoted:hover, .downvoted:hover {
+  cursor:pointer;
 }
 
 .upvote:hover, .downvote:hover {
@@ -166,8 +188,12 @@
   border-bottom: 20px solid rgb(63, 62, 62)
 }
 
+.upvoted:hover {
+  border-bottom: 20px solid rgb(26, 153, 75)
+}
+
 .downvote:hover {
-  border-top: 20px solid rgb(63, 62, 62)
+  border-top: 20px solid rgb(26, 153, 75)
 }
 
 .question-votes {

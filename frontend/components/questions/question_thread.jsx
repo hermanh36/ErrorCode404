@@ -45,6 +45,23 @@ class QuestionThread extends React.Component {
     })
   }
 
+  initialVoteCheck(voteType) {
+    let voteId = null;
+    let questionVotes = this.state.questionVote
+    if (Object.values(questionVotes).length > 0){
+      Object.values(questionVotes).forEach( vote => {
+        if (vote.voteType === voteType) {
+          if (vote.votableType === 'Question' && (parseInt(vote.votableId) === parseInt(this.props.questionId))) {
+            if (vote.voterId === this.props.currentUserId) {
+              voteId = vote.id
+            }
+          }
+        }
+      })
+    }
+    return voteId
+  }
+
   async checkIfVoted(voteType) {
     await this.setState({questionVote:this.props.votes})
     let voteId = null;
@@ -67,6 +84,7 @@ class QuestionThread extends React.Component {
         })
       }
     })
+    this.checkVoted = voteId;
     return voteId
   }
 
@@ -138,9 +156,18 @@ class QuestionThread extends React.Component {
             <div id='main-question-container'>
               <div id='main-question'>
                 <div className='question-votes'>
-                  <div className='upvote' onClick={this.onUpVote}></div>
+                  { !this.initialVoteCheck("upvote") ?
+                    <div className='upvote' onClick={this.onUpVote}></div>
+                    :
+                    <div className='upvoted' onClick={this.onUpVote}></div> 
+                  }
+                  {/* <div className='upvote' onClick={this.onUpVote}></div> */}
                   <p id='question-upvote'>{Object.values(this.state.questionVote).length > 0 ? this.numQuestionVotes(this.props.questionId) : 0 }</p>
-                  <div className='downvote' onClick={this.onDownVote}></div>
+                  { !this.initialVoteCheck("downvote") ?
+                    <div className='downvote' onClick={this.onDownVote}></div>
+                    :
+                    <div className='downvoted' onClick={this.onDownVote}></div> 
+                  }
                 </div>
                 <div id='main-question-body'>
                   <p>{this.props.question.body}</p>

@@ -9,6 +9,10 @@ class SignUpForm extends React.Component{
     this.submitHandler = this.submitHandler.bind(this);
   }
 
+  componentDidMount() {
+    this.props.resetErrors();
+  }
+
   update(field){
     return e => {
       this.setState( { [field]: e.target.value })

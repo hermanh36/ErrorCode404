@@ -22,21 +22,6 @@ class QuestionIndexItem extends React.Component {
     .then(() => this.setState({count: counter}))
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.question.id !== this.props.question.id) {
-  //     this.props.fetchVote(this.props.question.id)
-  //     .then(res => {
-  //       if (res.votes) {
-  //         Object.values(res.votes).forEach(vote => {
-  //           if (vote.votableType === 'Question'){
-  //             this.count +=1;
-  //           }
-  //         })
-  //       }
-  //     })
-  //   }
-  // }
-
 
   render() {
     if (!this.props.votes) {

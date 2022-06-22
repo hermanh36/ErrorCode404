@@ -23,6 +23,22 @@ class AnswerIndexItem extends React.Component {
     })    
   }
 
+  initialVoteCheck(voteType) {
+    let voteId = null;
+    let answerVotes = this.state.answerVotes || [];
+    if (Object.values(answerVotes).length > 0){
+      Object.values(answerVotes).forEach( vote => {
+        if (vote.voteType === voteType) {
+          if (vote.votableType === 'Answer' && (parseInt(vote.votableId) === parseInt(this.props.answer.id))) {
+            if (vote.voterId === this.props.currentUserId) {
+              voteId = vote.id
+            }
+          }
+        }
+      })
+    }
+    return voteId
+  }
 
   async checkIfVoted(voteType) {
     await this.setState({answerVotes:this.props.votes})
@@ -136,9 +152,19 @@ class AnswerIndexItem extends React.Component {
       return (
         <div id='main-answer'>
           <div class='answer-votes'>
-            <div class='upvote' onClick={this.onUpVote}></div>
+            {/* <div class='upvote' onClick={this.onUpVote}></div> */}
+            { !this.initialVoteCheck("upvote") ?
+              <div className='upvote' onClick={this.onUpVote}></div>
+              :
+              <div className='upvoted' onClick={this.onUpVote}></div> 
+            }
             <p id='answer-upvote'>{Object.values(this.state.answerVotes).length > 0 ? this.numAnswerVotes(this.props.answer.id) : 0  }</p>
-            <div class='downvote' onClick={this.onDownVote}></div>
+            {/* <div class='downvote' onClick={this.onDownVote}></div> */}
+            { !this.initialVoteCheck("downvote") ?
+              <div className='downvote' onClick={this.onDownVote}></div>
+              :
+              <div className='downvoted' onClick={this.onDownVote}></div> 
+            }
           </div>
           <div id='main-answer-body'>
             <div className='edit-ans-body'>

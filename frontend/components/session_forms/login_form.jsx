@@ -9,6 +9,11 @@ class LoginForm extends React.Component {
     this.demoHandler = this.demoHandler.bind(this);
   }
 
+  componentDidMount() {
+
+    this.props.resetErrors();
+  }
+
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value })
