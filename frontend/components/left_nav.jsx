@@ -16,7 +16,7 @@ class LeftNav extends React.Component {
         <p>Public</p>
         <ul>
           <li><Link className='left-nav-question left-nav-item selected' onClick={this.leftNavHandler} to='/questions'>Questions</Link></li>
-          <li><Link className='left-nav-item left-nav-users' onClick={this.leftNavHandler}> Users</Link></li>
+          {/* <li><Link className='left-nav-item left-nav-users' onClick={this.leftNavHandler}> Users</Link></li> */}
         </ul>
       </div>
     )
