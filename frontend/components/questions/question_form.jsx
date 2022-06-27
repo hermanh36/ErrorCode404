@@ -33,7 +33,9 @@ class QuestionForm extends React.Component {
   }
 
   componentDidMount() {
+    this.props.resetQuestionErrors()
   }
+
   render() {
     if(this.props.currentUserId && this.props.question) {
       if(!this.props.currentUserId === this.props.question.authorId) {
@@ -43,7 +45,7 @@ class QuestionForm extends React.Component {
     return (
       <div id='question-form-page-background'>
         <div id='question-form'>
-          <h1>Ask A Question</h1>
+          <h1 className='ask-question-title'>Ask A Question</h1>
           <form onSubmit={this.submitHandler}>
             <div id='question-form-container'>
               <h2>Title</h2>

@@ -53,7 +53,7 @@ class AnswerForm extends React.Component {
           <form id='answer-form-form' onSubmit={this.submitHandler}>
             <label htmlFor="answer-body">Add an Answer</label>
             <textarea name="answer-body" id="answer-body" value={this.state.body} onChange={this.update('body')}></textarea>
-            <input type="submit" value="Post Your Answer" />
+            <input className='post-answer' type="submit" value="Post Your Answer" />
             <div className='question-errors'>{this.renderErrors()}</div>
           </form>
         </div>

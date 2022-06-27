@@ -28,8 +28,8 @@ class QuestionThread extends React.Component {
     }) 
   }
 
-  componentDidUpdate() {
-    if(!this.props.question){
+  componentDidUpdate(prevProps) {
+    if(prevProps.question?.id !== this.props.question?.id){
       this.props.fetchQuestion(this.props.questionId);
     }
   }

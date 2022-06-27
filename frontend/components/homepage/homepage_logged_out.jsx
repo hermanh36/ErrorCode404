@@ -40,7 +40,7 @@ class HomePage extends React.Component {
               <div className='intro-container'>
                 <h1>Every&nbsp;<TextLoop className='loop'
                 children={['student', 'developer', 'instructor', 'data scientist', 'analyst']}
-                interval={1000}
+                interval={1500}
                 >
                 </TextLoop>&nbsp;has a bug that needs to be fixed!</h1>
               </div>

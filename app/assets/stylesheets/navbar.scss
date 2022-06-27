@@ -8,6 +8,17 @@
   flex-direction: row;
 }
 
+.self-links a {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.self-links a *:hover {
+  color: red;
+}
+
 .main-nav {
   display: flex;
   flex-direction: row;
@@ -22,6 +33,7 @@
   position:fixed;
   border-top: 5px solid orange;
   z-index: 20;
+  min-width: 1100px;
 }
 .nav-search {
   height: 18px;
@@ -256,3 +268,11 @@
   height: 30px;
 }
 
+.left-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:flex-start;
+  // margin-left: -20%
+
+}

@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 // import icon from '../../../app/assets/images/icon.png';
 // import profilePic from '../../../app/assets/images/profile-pic.png';
+import {FaGithub} from 'react-icons/fa'
+import { FaLinkedin } from 'react-icons/fa';
+import { FaAngellist } from 'react-icons/fa';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -75,13 +78,20 @@ class NavBar extends React.Component {
   }
 
   render() {
+    
     return (
       <div className='main-nav'>
         <div className='left-nav'>
           {this.displayLeftButton()}
+          <Link to='/' className='nav-icon'><div className='icon-container'><img src={window.iconURL} id='nav-icon'/><div className='icon-name'>Error 404</div></div></Link>
         </div>
-        <Link to='/' className='nav-icon'><div className='icon-container'><img src={window.iconURL} id='nav-icon'/><div className='icon-name'>Error 404</div></div></Link>
-        <input type="text" className='nav-search' placeholder='Search' />
+        {/* <Link to='/' className='nav-icon'><div className='icon-container'><img src={window.iconURL} id='nav-icon'/><div className='icon-name'>Error 404</div></div></Link> */}
+        {/* <input type="text" className='nav-search' placeholder='Search' /> */}
+        <div className='self-links'>
+            <a target="_blank" href='https://github.com/hermanh36/ErrorCode404'><FaGithub style={{fontSize:24}}/></a>
+            <a target="_blank" href='https://www.linkedin.com/in/herman-he-0a75051b0/'><FaLinkedin style={{fontSize:24}}/></a>
+            <a target="_blank" href='https://angel.co/u/herman-he'><FaAngellist style={{fontSize:24}}/></a>
+          </div>
         <div className='right-nav-container'>
           {this.displayRightNav()}
         </div>
